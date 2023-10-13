@@ -6,6 +6,10 @@
   "name":"[Lcom.sun.management.internal.DiagnosticCommandInfo;"
 },
 {
+  "name":"com.github.luben.zstd.ZstdInputStreamNoFinalizer",
+  "fields":[{"name":"dstPos"}, {"name":"srcPos"}]
+},
+{
   "name":"com.sun.management.internal.DiagnosticCommandArgumentInfo",
   "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.String","java.lang.String","java.lang.String","boolean","boolean","boolean","int"] }]
 },
@@ -16,6 +20,9 @@
 {
   "name":"java.lang.Boolean",
   "methods":[{"name":"getBoolean","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.lang.OutOfMemoryError"
 },
 {
   "name":"java.util.Arrays",

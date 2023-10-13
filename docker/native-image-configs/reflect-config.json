@@ -39,6 +39,9 @@
   "name":"[Lkafka.server.DelayedOperationPurgatory$WatcherList;"
 },
 {
+  "name":"[Lorg.apache.kafka.common.resource.PatternType;"
+},
+{
   "name":"[Lscala.Tuple2;"
 },
 {
@@ -127,6 +130,10 @@
   "name":"java.beans.PropertyVetoException"
 },
 {
+  "name":"java.io.Serializable",
+  "queryAllDeclaredMethods":true
+},
+{
   "name":"java.lang.Boolean",
   "fields":[{"name":"TYPE"}]
 },
@@ -157,6 +164,10 @@
   "name":"java.lang.Integer",
   "fields":[{"name":"TYPE"}],
   "methods":[{"name":"valueOf","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.lang.Iterable",
+  "queryAllDeclaredMethods":true
 },
 {
   "name":"java.lang.Long",
@@ -258,10 +269,45 @@
   "name":"java.math.BigInteger"
 },
 {
+  "name":"java.rmi.Remote",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"java.rmi.registry.Registry",
+  "queryAllPublicMethods":true
+},
+{
   "name":"java.security.SecureRandomParameters"
 },
 {
+  "name":"java.util.AbstractCollection",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.util.AbstractList",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.util.AbstractMap",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.util.Collection",
+  "queryAllDeclaredMethods":true
+},
+{
   "name":"java.util.Date"
+},
+{
+  "name":"java.util.List",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.util.Map",
+  "queryAllDeclaredMethods":true
 },
 {
   "name":"java.util.PropertyPermission",
@@ -282,6 +328,10 @@
 {
   "name":"java.util.concurrent.atomic.Striped64",
   "fields":[{"name":"base"}, {"name":"cellsBusy"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64$Cell",
+  "fields":[{"name":"value"}]
 },
 {
   "name":"java.util.logging.LogManager",
@@ -379,6 +429,39 @@
   "queryAllPublicMethods":true
 },
 {
+  "name":"net.jpountz.lz4.LZ4HCJNICompressor",
+  "fields":[{"name":"INSTANCE"}],
+  "methods":[{"name":"<init>","parameterTypes":["int"] }]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JNICompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JNIFastDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JNISafeDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.StreamingXXHash32JNI$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.StreamingXXHash64JNI$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.XXHash32JNI",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.XXHash64JNI",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
   "name":"org.apache.kafka.clients.consumer.CooperativeStickyAssignor",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -408,7 +491,8 @@
 },
 {
   "name":"org.apache.log4j.AppenderSkeleton",
-  "queryAllPublicMethods":true
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"setThreshold","parameterTypes":["org.apache.log4j.Priority"] }]
 },
 {
   "name":"org.apache.log4j.AppenderSkeletonBeanInfo"
@@ -484,6 +568,41 @@
   "name":"org.apache.log4j.WriterAppenderCustomizer"
 },
 {
+  "name":"org.apache.zookeeper.ClientCnxnSocketNIO",
+  "methods":[{"name":"<init>","parameterTypes":["org.apache.zookeeper.client.ZKClientConfig"] }]
+},
+{
+  "name":"org.osgi.framework.BundleEvent"
+},
+{
+  "name":"scala.collection.convert.JavaCollectionWrappers$IterableWrapperTrait",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"scala.collection.convert.JavaCollectionWrappers$MapWrapper",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"scala.collection.convert.JavaCollectionWrappers$MutableBufferWrapper",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"scala.collection.convert.JavaCollectionWrappers$MutableMapWrapper",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"scala.collection.convert.JavaCollectionWrappers$SeqWrapper",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
   "name":"scala.reflect.ScalaSignature",
   "queryAllPublicMethods":true
 },
@@ -533,12 +652,24 @@
   "methods":[{"name":"invokeCleaner","parameterTypes":["java.nio.ByteBuffer"] }]
 },
 {
+  "name":"sun.rmi.registry.RegistryImpl_Skel",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.rmi.registry.RegistryImpl_Stub",
+  "methods":[{"name":"<init>","parameterTypes":["java.rmi.server.RemoteRef"] }]
+},
+{
   "name":"sun.rmi.transport.DGCImpl_Skel",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"sun.rmi.transport.DGCImpl_Stub",
   "methods":[{"name":"<init>","parameterTypes":["java.rmi.server.RemoteRef"] }]
+},
+{
+  "name":"sun.security.provider.ConfigFile",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"sun.security.provider.MD5",

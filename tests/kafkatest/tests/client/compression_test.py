@@ -55,7 +55,7 @@ class CompressionTest(ProduceConsumeValidateTest):
         # Override this since we're adding services outside of the constructor
         return super(CompressionTest, self).min_cluster_size() + self.num_producers + self.num_consumers
 
-    @cluster(num_nodes=8)
+    @cluster(num_nodes=2)
     @matrix(compression_types=[COMPRESSION_TYPES], metadata_quorum=quorum.all_non_upgrade)
     def test_compressed_topic(self, compression_types, metadata_quorum=quorum.zk):
         """Test produce => consume => validate for compressed topics

@@ -45,4 +45,4 @@ COPY --from=build-native-image /app/kafka_2.13-3.7.0-SNAPSHOT/config/kraft/serve
 COPY --from=build-native-image /app/kafka_2.13-3.7.0-SNAPSHOT/config/log4j.properties log4j.properties
 COPY resources /etc/kafka/resources
 
-CMD ["sleep", "3000"]
+CMD ["/etc/kafka/resources/singleScript"]

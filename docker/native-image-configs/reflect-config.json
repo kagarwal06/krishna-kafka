@@ -429,6 +429,39 @@
   "queryAllPublicMethods":true
 },
 {
+  "name":"net.jpountz.lz4.LZ4JavaSafeCompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4HCJavaSafeCompressor",
+  "fields":[{"name":"INSTANCE"}],
+  "methods":[{"name":"<init>","parameterTypes":["int"] }]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JavaSafeFastDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JavaSafeSafeDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.XXHash32JavaSafe",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.XXHash64JavaSafe",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.StreamingXXHash32JavaSafe$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.StreamingXXHash64JavaSafe$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
   "name":"net.jpountz.lz4.LZ4HCJNICompressor",
   "fields":[{"name":"INSTANCE"}],
   "methods":[{"name":"<init>","parameterTypes":["int"] }]

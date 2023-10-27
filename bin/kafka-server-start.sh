@@ -41,4 +41,6 @@ case $COMMAND in
     ;;
 esac
 
-exec $base_dir/kafka-run-class-agent.sh $EXTRA_ARGS kafka.Kafka "$@"
+export JAVA_HOME='/opt/graalvm'
+EXTRA_ARGS+=' -agentlib:native-image-agent=config-merge-dir=native-configs'
+exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@"

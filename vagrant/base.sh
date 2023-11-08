@@ -93,6 +93,19 @@ get_kafka() {
     fi
 }
 
+get_graalvm() {
+#  URL="https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.1/graalvm-community-jdk-21.0.1_linux-aarch64_bin.tar.gz"
+  URL="https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.1/graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz"
+  TARGET_DIR="/opt/graalvm"
+
+  mkdir -p "$TARGET_DIR"
+
+  curl -L "$URL" -o graalvm.tar.gz
+  tar -xzf graalvm.tar.gz -C "$TARGET_DIR" --strip-components=1
+
+  rm graalvm.tar.gz
+}
+
 # Install Kibosh
 apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev
 pushd /opt
@@ -107,6 +120,8 @@ popd
 popd
 popd
 
+get_graalvm
+
 # Install iperf
 apt-get install -y iperf traceroute
 
@@ -114,54 +129,54 @@ apt-get install -y iperf traceroute
 # We want to use the latest Scala version per Kafka version
 # Previously we could not pull in Scala 2.12 builds, because Scala 2.12 requires Java 8 and we were running the system
 # tests with Java 7. We have since switched to Java 8, so 2.0.0 and later use Scala 2.12.
-get_kafka 0.8.2.2 2.11
-chmod a+rw /opt/kafka-0.8.2.2
-get_kafka 0.9.0.1 2.11
-chmod a+rw /opt/kafka-0.9.0.1
-get_kafka 0.10.0.1 2.11
-chmod a+rw /opt/kafka-0.10.0.1
-get_kafka 0.10.1.1 2.11
-chmod a+rw /opt/kafka-0.10.1.1
-get_kafka 0.10.2.2 2.11
-chmod a+rw /opt/kafka-0.10.2.2
-get_kafka 0.11.0.3 2.11
-chmod a+rw /opt/kafka-0.11.0.3
-get_kafka 1.0.2 2.11
-chmod a+rw /opt/kafka-1.0.2
-get_kafka 1.1.1 2.11
-chmod a+rw /opt/kafka-1.1.1
-get_kafka 2.0.1 2.12
-chmod a+rw /opt/kafka-2.0.1
-get_kafka 2.1.1 2.12
-chmod a+rw /opt/kafka-2.1.1
-get_kafka 2.2.2 2.12
-chmod a+rw /opt/kafka-2.2.2
-get_kafka 2.3.1 2.12
-chmod a+rw /opt/kafka-2.3.1
-get_kafka 2.4.1 2.12
-chmod a+rw /opt/kafka-2.4.1
-get_kafka 2.5.1 2.12
-chmod a+rw /opt/kafka-2.5.1
-get_kafka 2.6.2 2.12
-chmod a+rw /opt/kafka-2.6.2
-get_kafka 2.7.1 2.12
-chmod a+rw /opt/kafka-2.7.1
-get_kafka 2.8.2 2.12
-chmod a+rw /opt/kafka-2.8.2
-get_kafka 3.0.2 2.12
-chmod a+rw /opt/kafka-3.0.2
-get_kafka 3.1.2 2.12
-chmod a+rw /opt/kafka-3.1.2
-get_kafka 3.2.3 2.12
-chmod a+rw /opt/kafka-3.2.3
-get_kafka 3.3.1 2.12
-chmod a+rw /opt/kafka-3.3.1
-get_kafka 3.4.1 2.12
-chmod a+rw /opt/kafka-3.4.1
-get_kafka 3.5.1 2.12
-chmod a+rw /opt/kafka-3.5.1
-get_kafka 3.6.0 2.12
-chmod a+rw /opt/kafka-3.6.0
+#get_kafka 0.8.2.2 2.11
+#chmod a+rw /opt/kafka-0.8.2.2
+#get_kafka 0.9.0.1 2.11
+#chmod a+rw /opt/kafka-0.9.0.1
+#get_kafka 0.10.0.1 2.11
+#chmod a+rw /opt/kafka-0.10.0.1
+#get_kafka 0.10.1.1 2.11
+#chmod a+rw /opt/kafka-0.10.1.1
+#get_kafka 0.10.2.2 2.11
+#chmod a+rw /opt/kafka-0.10.2.2
+#get_kafka 0.11.0.3 2.11
+#chmod a+rw /opt/kafka-0.11.0.3
+#get_kafka 1.0.2 2.11
+#chmod a+rw /opt/kafka-1.0.2
+#get_kafka 1.1.1 2.11
+#chmod a+rw /opt/kafka-1.1.1
+#get_kafka 2.0.1 2.12
+#chmod a+rw /opt/kafka-2.0.1
+#get_kafka 2.1.1 2.12
+#chmod a+rw /opt/kafka-2.1.1
+#get_kafka 2.2.2 2.12
+#chmod a+rw /opt/kafka-2.2.2
+#get_kafka 2.3.1 2.12
+#chmod a+rw /opt/kafka-2.3.1
+#get_kafka 2.4.1 2.12
+#chmod a+rw /opt/kafka-2.4.1
+#get_kafka 2.5.1 2.12
+#chmod a+rw /opt/kafka-2.5.1
+#get_kafka 2.6.2 2.12
+#chmod a+rw /opt/kafka-2.6.2
+#get_kafka 2.7.1 2.12
+#chmod a+rw /opt/kafka-2.7.1
+#get_kafka 2.8.2 2.12
+#chmod a+rw /opt/kafka-2.8.2
+#get_kafka 3.0.2 2.12
+#chmod a+rw /opt/kafka-3.0.2
+#get_kafka 3.1.2 2.12
+#chmod a+rw /opt/kafka-3.1.2
+#get_kafka 3.2.3 2.12
+#chmod a+rw /opt/kafka-3.2.3
+#get_kafka 3.3.1 2.12
+#chmod a+rw /opt/kafka-3.3.1
+#get_kafka 3.4.1 2.12
+#chmod a+rw /opt/kafka-3.4.1
+#get_kafka 3.5.1 2.12
+#chmod a+rw /opt/kafka-3.5.1
+#get_kafka 3.6.0 2.12
+#chmod a+rw /opt/kafka-3.6.0
 
 # For EC2 nodes, we want to use /mnt, which should have the local disk. On local
 # VMs, we can just create it if it doesn't exist and use it like we'd use

@@ -27,6 +27,9 @@
   "name":"[Ljava.lang.String;"
 },
 {
+  "name":"[Ljava.rmi.server.ObjID;"
+},
+{
   "name":"[Ljava.util.concurrent.CompletableFuture;"
 },
 {
@@ -45,6 +48,9 @@
   "name":"[Lscala.Tuple2;"
 },
 {
+  "name":"[Lsun.security.pkcs.SignerInfo;"
+},
+{
   "name":"[S"
 },
 {
@@ -52,6 +58,46 @@
 },
 {
   "name":"com.fasterxml.jackson.databind.ext.Java7SupportImpl",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.AESCipher$General",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.AESKeyGenerator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ARCFOURCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESedeCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DHParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.GaloisCounterMode$AESGCM",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.HmacCore$HmacSHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.TlsMasterSecretGenerator",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -116,7 +162,8 @@
 },
 {
   "name":"com.yammer.metrics.reporting.JmxReporter$MeterMBean",
-  "queryAllPublicMethods":true
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"getCount","parameterTypes":[] }, {"name":"getEventType","parameterTypes":[] }, {"name":"getFifteenMinuteRate","parameterTypes":[] }, {"name":"getFiveMinuteRate","parameterTypes":[] }, {"name":"getMeanRate","parameterTypes":[] }, {"name":"getOneMinuteRate","parameterTypes":[] }, {"name":"getRateUnit","parameterTypes":[] }]
 },
 {
   "name":"com.yammer.metrics.reporting.JmxReporter$Timer",
@@ -132,6 +179,10 @@
 {
   "name":"java.io.Serializable",
   "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.lang.AutoCloseable",
+  "methods":[{"name":"close","parameterTypes":[] }]
 },
 {
   "name":"java.lang.Boolean",
@@ -269,15 +320,42 @@
   "name":"java.math.BigInteger"
 },
 {
+  "name":"java.rmi.MarshalledObject"
+},
+{
   "name":"java.rmi.Remote",
   "queryAllPublicMethods":true
+},
+{
+  "name":"java.rmi.dgc.Lease"
+},
+{
+  "name":"java.rmi.dgc.VMID"
 },
 {
   "name":"java.rmi.registry.Registry",
   "queryAllPublicMethods":true
 },
 {
+  "name":"java.rmi.server.ObjID"
+},
+{
+  "name":"java.rmi.server.UID"
+},
+{
+  "name":"java.security.AlgorithmParametersSpi"
+},
+{
+  "name":"java.security.KeyStoreSpi"
+},
+{
   "name":"java.security.SecureRandomParameters"
+},
+{
+  "name":"java.security.interfaces.RSAPrivateKey"
+},
+{
+  "name":"java.security.interfaces.RSAPublicKey"
 },
 {
   "name":"java.util.AbstractCollection",
@@ -375,6 +453,18 @@
   "name":"javax.management.openmbean.TabularData"
 },
 {
+  "name":"javax.management.remote.rmi.RMIConnection",
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"addNotificationListener","parameterTypes":["javax.management.ObjectName","javax.management.ObjectName","java.rmi.MarshalledObject","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"addNotificationListeners","parameterTypes":["javax.management.ObjectName[]","java.rmi.MarshalledObject[]","javax.security.auth.Subject[]"] }, {"name":"createMBean","parameterTypes":["java.lang.String","javax.management.ObjectName","java.rmi.MarshalledObject","java.lang.String[]","javax.security.auth.Subject"] }, {"name":"createMBean","parameterTypes":["java.lang.String","javax.management.ObjectName","javax.management.ObjectName","java.rmi.MarshalledObject","java.lang.String[]","javax.security.auth.Subject"] }, {"name":"createMBean","parameterTypes":["java.lang.String","javax.management.ObjectName","javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"createMBean","parameterTypes":["java.lang.String","javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"fetchNotifications","parameterTypes":["long","int","long"] }, {"name":"getAttribute","parameterTypes":["javax.management.ObjectName","java.lang.String","javax.security.auth.Subject"] }, {"name":"getAttributes","parameterTypes":["javax.management.ObjectName","java.lang.String[]","javax.security.auth.Subject"] }, {"name":"getConnectionId","parameterTypes":[] }, {"name":"getDefaultDomain","parameterTypes":["javax.security.auth.Subject"] }, {"name":"getDomains","parameterTypes":["javax.security.auth.Subject"] }, {"name":"getMBeanCount","parameterTypes":["javax.security.auth.Subject"] }, {"name":"getMBeanInfo","parameterTypes":["javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"getObjectInstance","parameterTypes":["javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"invoke","parameterTypes":["javax.management.ObjectName","java.lang.String","java.rmi.MarshalledObject","java.lang.String[]","javax.security.auth.Subject"] }, {"name":"isInstanceOf","parameterTypes":["javax.management.ObjectName","java.lang.String","javax.security.auth.Subject"] }, {"name":"isRegistered","parameterTypes":["javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"queryMBeans","parameterTypes":["javax.management.ObjectName","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"queryNames","parameterTypes":["javax.management.ObjectName","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"removeNotificationListener","parameterTypes":["javax.management.ObjectName","javax.management.ObjectName","java.rmi.MarshalledObject","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"removeNotificationListener","parameterTypes":["javax.management.ObjectName","javax.management.ObjectName","javax.security.auth.Subject"] }, {"name":"removeNotificationListeners","parameterTypes":["javax.management.ObjectName","java.lang.Integer[]","javax.security.auth.Subject"] }, {"name":"setAttribute","parameterTypes":["javax.management.ObjectName","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"setAttributes","parameterTypes":["javax.management.ObjectName","java.rmi.MarshalledObject","javax.security.auth.Subject"] }, {"name":"unregisterMBean","parameterTypes":["javax.management.ObjectName","javax.security.auth.Subject"] }]
+},
+{
+  "name":"javax.management.remote.rmi.RMIConnectionImpl_Skel"
+},
+{
+  "name":"javax.management.remote.rmi.RMIConnectionImpl_Stub",
+  "methods":[{"name":"<init>","parameterTypes":["java.rmi.server.RemoteRef"] }]
+},
+{
   "name":"javax.management.remote.rmi.RMIServer",
   "queryAllPublicMethods":true,
   "methods":[{"name":"getVersion","parameterTypes":[] }, {"name":"newClient","parameterTypes":["java.lang.Object"] }]
@@ -385,6 +475,11 @@
 {
   "name":"javax.management.remote.rmi.RMIServerImpl_Stub",
   "methods":[{"name":"<init>","parameterTypes":["java.rmi.server.RemoteRef"] }]
+},
+{
+  "name":"javax.security.auth.x500.X500Principal",
+  "fields":[{"name":"thisX500Name"}],
+  "methods":[{"name":"<init>","parameterTypes":["sun.security.x509.X500Name"] }]
 },
 {
   "name":"jdk.management.jfr.ConfigurationInfo",
@@ -429,40 +524,12 @@
   "queryAllPublicMethods":true
 },
 {
-  "name":"net.jpountz.lz4.LZ4JavaSafeCompressor",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.lz4.LZ4HCJavaSafeCompressor",
+  "name":"net.jpountz.lz4.LZ4HCJNICompressor",
   "fields":[{"name":"INSTANCE"}],
   "methods":[{"name":"<init>","parameterTypes":["int"] }]
 },
 {
-  "name":"net.jpountz.lz4.LZ4JavaSafeFastDecompressor",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.lz4.LZ4JavaSafeSafeDecompressor",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.xxhash.XXHash32JavaSafe",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.xxhash.XXHash64JavaSafe",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.xxhash.StreamingXXHash32JavaSafe$Factory",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.xxhash.StreamingXXHash64JavaSafe$Factory",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"net.jpountz.lz4.LZ4HCJNICompressor",
+  "name":"net.jpountz.lz4.LZ4HCJavaSafeCompressor",
   "fields":[{"name":"INSTANCE"}],
   "methods":[{"name":"<init>","parameterTypes":["int"] }]
 },
@@ -479,7 +546,23 @@
   "fields":[{"name":"INSTANCE"}]
 },
 {
+  "name":"net.jpountz.lz4.LZ4JavaSafeCompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JavaSafeFastDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.lz4.LZ4JavaSafeSafeDecompressor",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
   "name":"net.jpountz.xxhash.StreamingXXHash32JNI$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.StreamingXXHash32JavaSafe$Factory",
   "fields":[{"name":"INSTANCE"}]
 },
 {
@@ -487,11 +570,23 @@
   "fields":[{"name":"INSTANCE"}]
 },
 {
+  "name":"net.jpountz.xxhash.StreamingXXHash64JavaSafe$Factory",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
   "name":"net.jpountz.xxhash.XXHash32JNI",
   "fields":[{"name":"INSTANCE"}]
 },
 {
+  "name":"net.jpountz.xxhash.XXHash32JavaSafe",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
   "name":"net.jpountz.xxhash.XXHash64JNI",
+  "fields":[{"name":"INSTANCE"}]
+},
+{
+  "name":"net.jpountz.xxhash.XXHash64JavaSafe",
   "fields":[{"name":"INSTANCE"}]
 },
 {
@@ -705,6 +800,22 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"sun.security.provider.DSA$SHA224withDSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.DSA$SHA256withDSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.JavaKeyStore$DualFormatJKS",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.JavaKeyStore$JKS",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"sun.security.provider.MD5",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -715,5 +826,115 @@
 {
   "name":"sun.security.provider.SHA",
   "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA224",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA2$SHA256",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA5$SHA384",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.SHA5$SHA512",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.X509Factory",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.certpath.PKIXCertPathValidator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.PSSParameters",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSAKeyFactory$Legacy",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSAPSSSignature",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSASignature$SHA224withRSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.rsa.RSASignature$SHA256withRSA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.ssl.KeyManagerFactoryImpl$SunX509",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.ssl.SSLContextImpl$TLS13Context",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.ssl.TrustManagerFactoryImpl$PKIXFactory",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.util.ObjectIdentifier"
+},
+{
+  "name":"sun.security.x509.AuthorityInfoAccessExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.AuthorityKeyIdentifierExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.BasicConstraintsExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.CRLDistributionPointsExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.CertificateExtensions"
+},
+{
+  "name":"sun.security.x509.CertificatePoliciesExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.ExtendedKeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.IssuerAlternativeNameExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.KeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.NetscapeCertTypeExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.PrivateKeyUsageExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.SubjectAlternativeNameExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
+},
+{
+  "name":"sun.security.x509.SubjectKeyIdentifierExtension",
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.Boolean","java.lang.Object"] }]
 }
 ]

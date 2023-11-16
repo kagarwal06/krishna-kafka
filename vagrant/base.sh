@@ -112,8 +112,6 @@ build_native_image() {
       echo "KRISHNA 2 File does not exist."
   fi
 
-
-
   pushd /opt/kafka-dev
   ./gradlew releaseTarGz
   popd
@@ -122,7 +120,7 @@ build_native_image() {
   ls /opt/kafka-dev/core/build/distributions
   cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
   tar xfz kafka.tgz -C kafka --strip-components 1
-  rm kafka.tgz
+  rm /opt/kafka.tgz
 
   pushd /opt/kafka
   /opt/graalvm/bin/native-image --no-fallback \

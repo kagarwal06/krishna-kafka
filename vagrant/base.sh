@@ -117,9 +117,10 @@ build_native_image() {
   popd
 
   echo "KRISHNA 3"
+  mkdir -p /opt/kafka
   ls /opt/kafka-dev/core/build/distributions
   cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
-  tar xfz /opt/kafka.tgz -C kafka --strip-components 1
+  tar xfz /opt/kafka.tgz -C /opt/kafka --strip-components 1
   rm /opt/kafka.tgz
 
   pushd /opt/kafka

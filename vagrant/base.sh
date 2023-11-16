@@ -159,8 +159,11 @@ popd
 popd
 popd
 
-get_graalvm
-build_native_image
+echo "KRISHNA 1"
+uname -a
+echo "KRISHNA 2"
+#get_graalvm
+#build_native_image
 
 # Install iperf
 apt-get install -y iperf traceroute

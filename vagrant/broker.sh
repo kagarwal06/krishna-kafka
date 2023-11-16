@@ -26,23 +26,23 @@ JMX_PORT=$4
 kafka_dir=/opt/kafka-dev
 cd $kafka_dir
 
-./gradlew clean releaseTarGz
-/opt/graalvm/bin/native-image --no-fallback \
-            --allow-incomplete-classpath \
-            --report-unsupported-elements-at-runtime \
-            --install-exit-handlers \
-            --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
-            -H:+ReportExceptionStackTraces \
-            -H:ReflectionConfigurationFiles=tests/docker/native-image-configs/reflect-config.json \
-            -H:JNIConfigurationFiles=tests/docker/native-image-configs/jni-config.json \
-            -H:ResourceConfigurationFiles=tests/docker/native-image-configs/resource-config.json \
-            -H:SerializationConfigurationFiles=tests/docker/native-image-configs/serialization-config.json \
-            -H:PredefinedClassesConfigurationFiles=tests/docker/native-image-configs/predefined-classes-config.json \
-            -H:DynamicProxyConfigurationFiles=tests/docker/native-image-configs/proxy-config.json \
-            --verbose \
-            -cp "libs/*" kafka.KafkaNativeWrapper
-
-cp kafka.kafkanativewrapper /opt/kafka.Kafka
+#./gradlew clean releaseTarGz
+#/opt/graalvm/bin/native-image --no-fallback \
+#            --allow-incomplete-classpath \
+#            --report-unsupported-elements-at-runtime \
+#            --install-exit-handlers \
+#            --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
+#            -H:+ReportExceptionStackTraces \
+#            -H:ReflectionConfigurationFiles=tests/docker/native-image-configs/reflect-config.json \
+#            -H:JNIConfigurationFiles=tests/docker/native-image-configs/jni-config.json \
+#            -H:ResourceConfigurationFiles=tests/docker/native-image-configs/resource-config.json \
+#            -H:SerializationConfigurationFiles=tests/docker/native-image-configs/serialization-config.json \
+#            -H:PredefinedClassesConfigurationFiles=tests/docker/native-image-configs/predefined-classes-config.json \
+#            -H:DynamicProxyConfigurationFiles=tests/docker/native-image-configs/proxy-config.json \
+#            --verbose \
+#            -cp "libs/*" kafka.KafkaNativeWrapper
+#
+#cp kafka.kafkanativewrapper /opt/kafka.Kafka
 
 sed \
     -e 's/broker.id=0/'broker.id=$BROKER_ID'/' \

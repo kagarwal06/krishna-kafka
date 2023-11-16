@@ -124,6 +124,7 @@ build_native_image() {
   rm /opt/kafka.tgz
 
   pushd /opt/kafka
+  apt-get build-essential libz-dev zlib1g-dev
   /opt/graalvm/bin/native-image --no-fallback \
         --allow-incomplete-classpath \
         --report-unsupported-elements-at-runtime \

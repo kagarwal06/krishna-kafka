@@ -130,12 +130,12 @@ build_native_image() {
         --install-exit-handlers \
         --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
         -H:+ReportExceptionStackTraces \
-        -H:ReflectionConfigurationFiles=tests/docker/native-image-configs/reflect-config.json \
-        -H:JNIConfigurationFiles=tests/docker/native-image-configs/jni-config.json \
-        -H:ResourceConfigurationFiles=tests/docker/native-image-configs/resource-config.json \
-        -H:SerializationConfigurationFiles=tests/docker/native-image-configs/serialization-config.json \
-        -H:PredefinedClassesConfigurationFiles=tests/docker/native-image-configs/predefined-classes-config.json \
-        -H:DynamicProxyConfigurationFiles=tests/docker/native-image-configs/proxy-config.json \
+        -H:ReflectionConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/reflect-config.json \
+        -H:JNIConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/jni-config.json \
+        -H:ResourceConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/resource-config.json \
+        -H:SerializationConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/serialization-config.json \
+        -H:PredefinedClassesConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/predefined-classes-config.json \
+        -H:DynamicProxyConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/proxy-config.json \
         --verbose \
         -cp "libs/*" kafka.KafkaNativeWrapper
   popd

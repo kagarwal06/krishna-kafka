@@ -106,44 +106,42 @@ get_graalvm() {
 }
 
 build_native_image() {
-  echo "KRISHNA 1"
-  pwd
-  echo "KRISHNA 2"
+  if [ -e "/opt/kafka-dev/kafka.Kafka" ]; then
+      echo "KRISHNA 1 File exists."
+  else
+      echo "KRISHNA 2 File does not exist."
+  fi
+
+
+
   pushd /opt/kafka-dev
   ./gradlew releaseTarGz
   popd
 
-  echo "KRISHNA 22"
-  ls /opt/kafka-dev/build/distributions
-  cp /opt/kafka-dev/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
+  echo "KRISHNA 3"
+  ls /opt/kafka-dev/core/build/distributions
+  cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
   tar xfz kafka.tgz -C kafka --strip-components 1
   rm kafka.tgz
+
   pushd /opt/kafka
-
-  echo "KRISHNA 3"
   /opt/graalvm/bin/native-image --no-fallback \
-      --allow-incomplete-classpath \
-      --report-unsupported-elements-at-runtime \
-      --install-exit-handlers \
-      --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
-      -H:+ReportExceptionStackTraces \
-      -H:ReflectionConfigurationFiles=tests/docker/native-image-configs/reflect-config.json \
-      -H:JNIConfigurationFiles=tests/docker/native-image-configs/jni-config.json \
-      -H:ResourceConfigurationFiles=tests/docker/native-image-configs/resource-config.json \
-      -H:SerializationConfigurationFiles=tests/docker/native-image-configs/serialization-config.json \
-      -H:PredefinedClassesConfigurationFiles=tests/docker/native-image-configs/predefined-classes-config.json \
-      -H:DynamicProxyConfigurationFiles=tests/docker/native-image-configs/proxy-config.json \
-      --verbose \
-      -cp "libs/*" kafka.KafkaNativeWrapper
+        --allow-incomplete-classpath \
+        --report-unsupported-elements-at-runtime \
+        --install-exit-handlers \
+        --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
+        -H:+ReportExceptionStackTraces \
+        -H:ReflectionConfigurationFiles=tests/docker/native-image-configs/reflect-config.json \
+        -H:JNIConfigurationFiles=tests/docker/native-image-configs/jni-config.json \
+        -H:ResourceConfigurationFiles=tests/docker/native-image-configs/resource-config.json \
+        -H:SerializationConfigurationFiles=tests/docker/native-image-configs/serialization-config.json \
+        -H:PredefinedClassesConfigurationFiles=tests/docker/native-image-configs/predefined-classes-config.json \
+        -H:DynamicProxyConfigurationFiles=tests/docker/native-image-configs/proxy-config.json \
+        --verbose \
+        -cp "libs/*" kafka.KafkaNativeWrapper
   popd
-
-  ls
-
-  if [ -e "/opt/kafka/kafka.kafkanativewrapper" ]; then
-      echo "KRISHNA 4 File exists."
-  else
-      echo "KRISHNA 5 File does not exist."
-  fi
+  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka-dev/kafka.Kafka
+  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka.Kafka
 
 }
 

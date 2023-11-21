@@ -146,7 +146,7 @@ build_native_image() {
 }
 
 # Install Kibosh
-apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev
+apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev ntpdate
 pushd /opt
 rm -rf /opt/kibosh
 git clone -q  https://github.com/confluentinc/kibosh.git
@@ -159,11 +159,8 @@ popd
 popd
 popd
 
-echo "KRISHNA 1"
-uname -a
-echo "KRISHNA 2"
-#get_graalvm
-#build_native_image
+get_graalvm
+build_native_image
 
 # Install iperf
 apt-get install -y iperf traceroute

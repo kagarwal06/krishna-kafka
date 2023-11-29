@@ -112,9 +112,9 @@ build_native_image() {
       echo "KRISHNA 2 File does not exist."
   fi
 
-  pushd /opt/kafka-dev
-  ./gradlew releaseTarGz
-  popd
+#  pushd /opt/kafka-dev
+#  ./gradlew releaseTarGz
+#  popd
 
   echo "KRISHNA 3"
   mkdir -p /opt/kafka

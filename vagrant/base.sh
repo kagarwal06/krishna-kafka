@@ -116,32 +116,32 @@ build_native_image() {
 #  ./gradlew releaseTarGz
 #  popd
 
-  echo "KRISHNA 3"
-  mkdir -p /opt/kafka
-  ls /opt/kafka-dev/core/build/distributions
-  cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
-  tar xfz /opt/kafka.tgz -C /opt/kafka --strip-components 1
-  rm /opt/kafka.tgz
-
-  pushd /opt/kafka
-  apt-get install -y build-essential libz-dev zlib1g-dev libstdc++6
-  /opt/graalvm/bin/native-image --no-fallback \
-        --allow-incomplete-classpath \
-        --report-unsupported-elements-at-runtime \
-        --install-exit-handlers \
-        --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
-        -H:+ReportExceptionStackTraces \
-        -H:ReflectionConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/reflect-config.json \
-        -H:JNIConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/jni-config.json \
-        -H:ResourceConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/resource-config.json \
-        -H:SerializationConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/serialization-config.json \
-        -H:PredefinedClassesConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/predefined-classes-config.json \
-        -H:DynamicProxyConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/proxy-config.json \
-        --verbose \
-        -cp "libs/*" kafka.KafkaNativeWrapper
-  popd
-  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka-dev/kafka.Kafka
-  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka.Kafka
+#  echo "KRISHNA 3"
+#  mkdir -p /opt/kafka
+#  ls /opt/kafka-dev/core/build/distributions
+#  cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
+#  tar xfz /opt/kafka.tgz -C /opt/kafka --strip-components 1
+#  rm /opt/kafka.tgz
+#
+#  pushd /opt/kafka
+#  apt-get install -y build-essential libz-dev zlib1g-dev libstdc++6
+#  /opt/graalvm/bin/native-image --no-fallback \
+#        --allow-incomplete-classpath \
+#        --report-unsupported-elements-at-runtime \
+#        --install-exit-handlers \
+#        --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
+#        -H:+ReportExceptionStackTraces \
+#        -H:ReflectionConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/reflect-config.json \
+#        -H:JNIConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/jni-config.json \
+#        -H:ResourceConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/resource-config.json \
+#        -H:SerializationConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/serialization-config.json \
+#        -H:PredefinedClassesConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/predefined-classes-config.json \
+#        -H:DynamicProxyConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/proxy-config.json \
+#        --verbose \
+#        -cp "libs/*" kafka.KafkaNativeWrapper
+#  popd
+#  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka-dev/kafka.Kafka
+  cp /opt/kafka-dev/kafka.Kafka /opt/kafka.Kafka
 
 }
 
@@ -159,7 +159,7 @@ popd
 popd
 popd
 
-get_graalvm
+#get_graalvm
 build_native_image
 
 # Install iperf

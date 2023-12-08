@@ -41,4 +41,5 @@ case $COMMAND in
     ;;
 esac
 
+export GRAALVM="native"
 exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@"

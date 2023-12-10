@@ -340,7 +340,7 @@ CLASSPATH=${CLASSPATH#:}
 # If Cygwin is detected, classpath is converted to Windows format.
 (( WINDOWS_OS_FORMAT )) && CLASSPATH=$(cygpath --path --mixed "${CLASSPATH}")
 
-if [ "$GRAALVM" = "native" ]; then
+if [ "$KAFKA_MODE" = "native" ]; then
   exec $base_dir/kafka.Kafka kafka $2  $KAFKA_LOG4J_CMD_OPTS $KAFKA_JMX_OPTS $KAFKA_OPTS
 else
   # Launch mode

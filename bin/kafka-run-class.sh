@@ -341,6 +341,7 @@ CLASSPATH=${CLASSPATH#:}
 (( WINDOWS_OS_FORMAT )) && CLASSPATH=$(cygpath --path --mixed "${CLASSPATH}")
 
 if [ "$KAFKA_MODE" = "native" ]; then
+  echo "KAFKA_MODE = " $KAFKA_MODE
   exec $base_dir/kafka.Kafka kafka $2  $KAFKA_LOG4J_CMD_OPTS $KAFKA_JMX_OPTS $KAFKA_OPTS
 else
   # Launch mode

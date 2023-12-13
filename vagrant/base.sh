@@ -94,7 +94,7 @@ get_kafka() {
 }
 
 # Install Kibosh
-apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev ntpdate
+apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev
 pushd /opt
 rm -rf /opt/kibosh
 git clone -q  https://github.com/confluentinc/kibosh.git

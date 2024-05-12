@@ -41,7 +41,7 @@ JDK_FULL="${JDK_FULL:-8u202-linux-x64}"
 
 if [ -z `which javac` ]; then
     apt-get -y update
-    apt-get install -y software-properties-common python-software-properties binutils java-common
+    apt-get install -y software-properties-common binutils java-common
 
     echo "===> Installing JDK..." 
 
@@ -93,8 +93,60 @@ get_kafka() {
     fi
 }
 
+get_graalvm() {
+  URL="https://github.com/graalvm/graalvm-ce-builds/releases/download/jdk-21.0.1/graalvm-community-jdk-21.0.1_linux-x64_bin.tar.gz"
+  TARGET_DIR="/opt/graalvm"
+
+  mkdir -p "$TARGET_DIR"
+
+  curl -L "$URL" -o graalvm.tar.gz
+  tar -xzf graalvm.tar.gz -C "$TARGET_DIR" --strip-components=1
+
+  rm graalvm.tar.gz
+}
+
+build_native_image() {
+  if [ -e "/opt/kafka-dev/kafka.Kafka" ]; then
+      echo "KRISHNA 1 File exists."
+  else
+      echo "KRISHNA 2 File does not exist."
+  fi
+
+#  pushd /opt/kafka-dev
+#  ./gradlew releaseTarGz
+#  popd
+
+#  echo "KRISHNA 3"
+#  mkdir -p /opt/kafka
+#  ls /opt/kafka-dev/core/build/distributions
+#  cp /opt/kafka-dev/core/build/distributions/kafka_2.13-3.7.0-SNAPSHOT.tgz /opt/kafka.tgz
+#  tar xfz /opt/kafka.tgz -C /opt/kafka --strip-components 1
+#  rm /opt/kafka.tgz
+#
+#  pushd /opt/kafka
+#  apt-get install -y build-essential libz-dev zlib1g-dev libstdc++6
+#  /opt/graalvm/bin/native-image --no-fallback \
+#        --allow-incomplete-classpath \
+#        --report-unsupported-elements-at-runtime \
+#        --install-exit-handlers \
+#        --enable-monitoring=jmxserver,jmxclient,heapdump,jvmstat \
+#        -H:+ReportExceptionStackTraces \
+#        -H:ReflectionConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/reflect-config.json \
+#        -H:JNIConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/jni-config.json \
+#        -H:ResourceConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/resource-config.json \
+#        -H:SerializationConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/serialization-config.json \
+#        -H:PredefinedClassesConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/predefined-classes-config.json \
+#        -H:DynamicProxyConfigurationFiles=/opt/kafka-dev/tests/docker/native-image-configs/proxy-config.json \
+#        --verbose \
+#        -cp "libs/*" kafka.KafkaNativeWrapper
+#  popd
+#  cp /opt/kafka/kafka.kafkanativewrapper /opt/kafka-dev/kafka.Kafka
+  cp /opt/kafka-dev/kafka.Kafka /opt/kafka.Kafka
+
+}
+
 # Install Kibosh
-apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev
+apt-get update -y && apt-get install -y git cmake pkg-config libfuse-dev ntpdate
 pushd /opt
 rm -rf /opt/kibosh
 git clone -q  https://github.com/confluentinc/kibosh.git
@@ -106,6 +158,9 @@ pushd "/opt/kibosh/build"
 popd
 popd
 popd
+
+#get_graalvm
+build_native_image
 
 # Install iperf
 apt-get install -y iperf traceroute
